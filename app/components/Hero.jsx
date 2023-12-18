@@ -52,7 +52,7 @@ const Hero = () => {
   return (
     <section className="grid grid-cols-5 h-[90%]">
       {/* col 1 */}
-      <div className="flex justify-center items-center col-span-1 h-[100%]">
+      <div className="flex justify-center items-center col-span-1 h-[100%] ">
         <div className="text-white flex flex-col gap-7">
           {page.map((item, index) => (
             <div key={index}>
@@ -100,7 +100,7 @@ const Hero = () => {
       {/* col 3 */}
       <div className="col-span-1 h-[100%]">
         <div className="text-red-600 flex items-center justify-center p-5 h-[100%]">
-          <div className="border border-gray-500 w-0 h-[80%]"></div>
+          <div className="border border-gray-500 w-0 h-[50%]"></div>
           <div className="ms-10 flex flex-col gap-10">
             <FontAwesomeIcon
               icon={faGithub}

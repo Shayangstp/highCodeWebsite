@@ -10,3 +10,9 @@ body {
   background-image: url("../public/assets/test.png");
   background-size: cover;
 }
+.sec2Wallpaper {
+  background-image: url("../public/assets/sec2Wallpaper.png");
+  background-size: cover;
+  width: 450px;
+  height: 450px;
+}

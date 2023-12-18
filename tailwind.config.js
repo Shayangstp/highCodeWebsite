@@ -11,6 +11,7 @@ module.exports = withMT({
     extend: {
       colors: {
         "blue-transparent": "rgba(0, 179, 255, 0.22)",
+        "gray-opacity": "rgba(175, 175, 175, 0.29)",
       },
     },
   },

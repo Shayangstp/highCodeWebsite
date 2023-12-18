@@ -11,7 +11,7 @@ import Link from "next/link";
 
 const Nav = () => {
   const [openNav, setOpenNav] = useState(false);
-  const [activeLink, setActiveLink] = useState(null);
+  const [activeLink, setActiveLink] = useState("/");
 
   const handleLinkClick = (link) => {
     setActiveLink(link);
