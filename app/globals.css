@@ -16,3 +16,9 @@ body {
   width: 450px;
   height: 450px;
 }
+.sec3Wallpaper-aboutUs {
+  background-image: url("../public/assets/sec3Wallpaper-aboutUs.png");
+  background-size: cover;
+  width: 450px;
+  height: 450px;
+}

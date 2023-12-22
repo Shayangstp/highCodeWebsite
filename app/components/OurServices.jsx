@@ -44,9 +44,9 @@ const OurServices = () => {
     };
   }, []);
   return (
-    <section className=" bg-gray-900 bg-opacity-30 h-full w-full p-5">
-      <div className="h-full w-full rounded-md bg-gradient-to-r from-white to-gray-opacity p-0.5">
-        <main className="grid grid-cols-8  h-full w-full bg-black rounded-md">
+    <section className=" bg-gray-900 bg-opacity-30 h-[100%] w-full p-5 mt-16">
+      <div className=" w-full h-[100%]  rounded-md bg-gradient-to-r from-white to-gray-opacity p-0.5">
+        <main className="grid grid-cols-8 p-10 w-full h-[100%] bg-black rounded-md">
           {/* col 1 */}
           <div className="flex justify-center items-center col-span-5 ms-16 h-[100%] ">
             <div className="text-white flex flex-col gap-7">
@@ -73,11 +73,11 @@ const OurServices = () => {
                 <div className="border border-gray-500 w-[20px] rotate-45 mt-1"></div>
                 <div className="border border-gray-500 w-[20px] rotate-45 mt-1"></div>
               </div>
-              <div className="border border-gray-500 w-0 h-[80%] mt-2"></div>
+              <div className="border border-gray-500 w-0 h-[100%] mt-2"></div>
             </div>
             {/* our services section */}
             <div className="flex flex-col">
-              <div className="text-white text-[45px] font-bold">
+              <div className="text-white text-[70px] font-bold">
                 Our Services :{" "}
               </div>
               <ul className="w-[90%] p-5 rounded-xl bg-[#228DAF] list-disc list-inside">
@@ -116,6 +116,7 @@ const OurServices = () => {
               <div className="text-end w-[90%]">
                 <Button className="bg-[#616161] bg-opacity-25 border-2 border-[#616161] mt-3 px-5">
                   <span>ContactUS</span>
+
                   <FontAwesomeIcon icon={faCircleRight} className="ms-3 " />
                 </Button>
               </div>
