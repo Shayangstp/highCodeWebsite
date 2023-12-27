@@ -1,28 +1,26 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import {
-  Navbar,
-  MobileNav,
-  Typography,
-  Button,
-  IconButton,
-} from "@material-tailwind/react";
 import Link from "next/link";
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  Button,
+} from "@mui/material";
+import { Menu } from "@mui/icons-material";
 
 const Nav = () => {
-  const [openNav, setOpenNav] = useState(false);
   const [activeLink, setActiveLink] = useState("/");
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  const handleLinkClick = (link) => {
-    setActiveLink(link);
+  const toggleDrawer = () => {
+    setIsDrawerOpen(!isDrawerOpen);
   };
-
-  useEffect(() => {
-    window.addEventListener(
-      "resize",
-      () => window.innerWidth >= 960 && setOpenNav(false)
-    );
-  }, []);
 
   const navList = (
     <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-10">
@@ -88,74 +86,88 @@ const Nav = () => {
           <div className="hidden lg:block mt-2">{navList}</div>
         </div>
         <div className="">
-          <div className="col-span-1 flex justify-center gap-x-1 p-2">
+          <div className="flex justify-center gap-x-3 p-2">
             <Button
-              variant="text"
-              size="md"
-              className="hidden lg:inline-block text-white"
+              variant="outlined"
+              size="middle"
+              className="hidden lg:inline-block text-white border border-gray-500 hover:border-cyan-300 px-4 rounded-lg"
             >
-              <span>Log In</span>
+              <span className="text-[12px]">Log In</span>
             </Button>
             <Button
-              variant="gradient"
-              size="md"
-              className="hidden lg:inline-block"
+              size="small"
+              className="hidden lg:inline-block bg-gray-800 text-white rounded-lg px-4 hover:text-cyan-300"
             >
-              <span>Sign in</span>
+              <span className="text-[12px]">Sign in</span>
             </Button>
-            <IconButton
-              variant="text"
-              className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
-              ripple={false}
-              onClick={() => setOpenNav(!openNav)}
-            >
-              {openNav ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  className="h-6 w-6"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
+            <div>
+              <AppBar position="static" className="bg-transparent lg:hidden">
+                {/* <Toolbar> */}
+                <IconButton
+                  edge="start"
+                  color="inherit"
+                  aria-label="menu"
+                  onClick={toggleDrawer}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              )}
-            </IconButton>
+                  <Menu />
+                </IconButton>
+                {/* </Toolbar> */}
+              </AppBar>
+
+              <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer}>
+                <div className="bg-gray-900 h-[100vh]">
+                  <header className="text-white p-4 mt-3">
+                    <div className="flex justify-between">
+                      <h3>Menu</h3>
+                      <div className="flex gap-1">
+                        <Button
+                          variant="text"
+                          size="middle"
+                          className=" text-white border border-gray-500 hover:text-cyan-300 px-4 rounded-lg"
+                        >
+                          <span className="text-[12px]">Log In</span>
+                        </Button>
+                        <Button
+                          variant="text"
+                          size="small"
+                          className=" text-white border border-gray-500 hover:text-cyan-300 px-4 rounded-lg"
+                        >
+                          <span className="text-[12px]">Sign in</span>
+                        </Button>
+                      </div>
+                    </div>
+                    <div className="border w-100 mt-4"></div>
+                  </header>
+                  <List className="w-[300px] flex flex-col text-white">
+                    <ListItem
+                      button
+                      onClick={toggleDrawer}
+                      className="hover:bg-cyan-600"
+                    >
+                      <ListItemText primary="Home" />
+                    </ListItem>
+                    <ListItem
+                      button
+                      onClick={toggleDrawer}
+                      className="hover:bg-cyan-600"
+                    >
+                      <ListItemText primary="About" />
+                    </ListItem>
+
+                    <ListItem
+                      button
+                      onClick={toggleDrawer}
+                      className="hover:bg-cyan-600"
+                    >
+                      <ListItemText primary="Contact" />
+                    </ListItem>
+                  </List>
+                </div>
+              </Drawer>
+            </div>
           </div>
         </div>
       </div>
-      <MobileNav open={openNav}>
-        <div className="container mx-auto">
-          {navList}
-          <div className="flex items-center gap-x-1">
-            <Button fullWidth variant="text" size="sm" className="">
-              <span>Log In</span>
-            </Button>
-            <Button fullWidth variant="gradient" size="sm" className="">
-              <span>Sign in</span>
-            </Button>
-          </div>
-        </div>
-      </MobileNav>
     </div>
   );
 };

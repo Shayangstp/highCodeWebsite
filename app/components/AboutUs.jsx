@@ -8,7 +8,7 @@ import {
   faCircleRight,
   faChevronDown,
 } from "@fortawesome/free-solid-svg-icons";
-import { Button } from "@material-tailwind/react";
+// import { Button } from "@material-tailwind/react";
 
 const page = ["home", "sec1", "sec2", "sec4"];
 
@@ -82,16 +82,16 @@ const AboutUs = () => {
               <div className="border border-gray-500 w-0 h-[80%] mt-2"></div>
             </div>
           </div>
-          {/* AboutUs section */}
         </div>
+        {/* AboutUs section */}
         <div className="col-span-7 h-[100%]">
           <section className="pe-10 py-10">
             <div className="grid grid-cols-8 bg-cyan-400 rounded-r-[80px] p-10">
-              <div className="col-span-3 font-bold flex items-center justify-start ms-5">
-                <h1 className="text-[90px] text-white">ABOUT US</h1>
+              <div className="col-span-3 font-bold flex items-center justify-center ms-5">
+                <h1 className="text-[70px] text-white">ABOUT US</h1>
               </div>
               <div className="col-span-1 flex items-center justify-center">
-                <div className="border-2 h-0 w-[70%]"></div>
+                <div className="border h-0 w-[70%]"></div>
               </div>
               <div className="text-white col-span-4 flex items-center">
                 <p className="ms-10">
@@ -101,20 +101,20 @@ const AboutUs = () => {
                 </p>
               </div>
               {/* image */}
-              <div className="col-span-4 mt-10 ms-10">
+              <div className="col-span-4 flex justify-center items-center">
                 <div className="sec3Wallpaper-aboutUs" />
               </div>
               {/* cards */}
-              <div className="col-span-4 flex flex-col gap-4 mb-10">
+              <div className="col-span-4 flex flex-col gap-4 mb-10 mt-10">
                 {cardData.map((item, idx) => {
                   return (
-                    <div className="bg-black text-white rounded-[50px] me-10 ms-10 overflow-hidden">
+                    <div className="bg-black text-white rounded-[50px] ms-10 overflow-hidden shadow-2xl">
                       <header className="flex items-center justify-between px-10 py-3">
                         <div className="flex items-center">
                           <span className="text-[80px] font-bold mt-2">
                             {item.headerNumber}
                           </span>
-                          <span className="ms-3 text-[30px]">
+                          <span className="ms-3 text-[20px]">
                             {item.headerText}
                           </span>
                         </div>
@@ -129,7 +129,9 @@ const AboutUs = () => {
                         </div>
                       </header>
                       {expandedItem === idx && (
-                        <p className="px-10 mb-10">{item.content}</p>
+                        <p className="px-10 mb-10 text-[12px]">
+                          {item.content}
+                        </p>
                       )}
                     </div>
                   );

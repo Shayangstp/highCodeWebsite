@@ -7,7 +7,7 @@ import {
   faCircle,
   faCircleRight,
 } from "@fortawesome/free-solid-svg-icons";
-import { Button } from "@material-tailwind/react";
+import { Button } from "@mui/material";
 
 const page = ["home", "sec1", "sec2", "sec4"];
 
@@ -44,11 +44,11 @@ const OurServices = () => {
     };
   }, []);
   return (
-    <section className=" bg-gray-900 bg-opacity-30 h-[100%] w-full p-5 mt-16">
-      <div className=" w-full h-[100%]  rounded-md bg-gradient-to-r from-white to-gray-opacity p-0.5">
+    <section className=" bg-gray-900 bg-opacity-30  w-full p-5 mt-16">
+      <div className=" w-full h-[100%]  rounded-md bg-gradient-to-r from-white to-gray-900 p-0.5">
         <main className="grid grid-cols-8 p-10 w-full h-[100%] bg-black rounded-md">
           {/* col 1 */}
-          <div className="flex justify-center items-center col-span-5 ms-16 h-[100%] ">
+          <div className="flex justify-center items-center col-span-5 ms-10 h-[100%] ">
             <div className="text-white flex flex-col gap-7">
               {page.map((item, index) => (
                 <div key={index}>
@@ -114,10 +114,12 @@ const OurServices = () => {
                 </p>
               </div>
               <div className="text-end w-[90%]">
-                <Button className="bg-[#616161] bg-opacity-25 border-2 border-[#616161] mt-3 px-5">
-                  <span>ContactUS</span>
-
-                  <FontAwesomeIcon icon={faCircleRight} className="ms-3 " />
+                <Button className="bg-[#616161] bg-opacity-25 rounded-md border-2 border-[#616161] mt-3 px-5 py-2 hover:bg-[#887382]">
+                  <span className="text-white">ContactUS</span>
+                  <FontAwesomeIcon
+                    icon={faCircleRight}
+                    className="text-white ms-2"
+                  />
                 </Button>
               </div>
             </div>

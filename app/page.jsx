@@ -4,15 +4,17 @@ import Hero from "./components/Hero";
 import Navbar from "./components/Nav";
 import OurServices from "./components/OurServices";
 import AboutUs from "./components/AboutUs";
+import BlogSection from "./components/BlogSection";
 
 const Home = () => {
   return (
     <div className="flex justify-center items-center">
-      <div className="hero bg-cover bg-center h-[100vh] max-w-[1920px]">
+      <div className="bg-cover bg-center min-h-[100vh] max-w-[1920px]">
         <Navbar />
         <Hero />
         <OurServices />
         <AboutUs />
+        <BlogSection />
       </div>
     </div>
   );

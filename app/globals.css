@@ -7,7 +7,7 @@ body {
 }
 
 .hero {
-  background-image: url("../public/assets/test.png");
+  background-image: url("../public/assets/testFinal.png");
   background-size: cover;
 }
 .sec2Wallpaper {
@@ -21,4 +21,19 @@ body {
   background-size: cover;
   width: 450px;
   height: 450px;
+}
+
+.slider-container {
+  transition: transform 0.5s ease;
+}
+
+.slider-item {
+  /* opacity: 0; */
+  /* visibility: hidden; */
+  transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+.slider-item.active {
+  opacity: 1;
+  visibility: visible;
 }
