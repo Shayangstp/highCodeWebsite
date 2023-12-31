@@ -1,6 +1,5 @@
 "use client";
-import React, { useState, useEffect, useContext } from "react";
-import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowDown,
@@ -19,7 +18,8 @@ import {
 } from "@mui/material";
 import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
-import "react-horizontal-scrolling-menu/dist/styles.css";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import "swiper/css";
 
 const blogData = [
   {
@@ -71,82 +71,7 @@ const BlogSection = () => {
   const [items, setItems] = useState(blogData);
   const [selected, setSelected] = useState([]);
   const [position, setPosition] = useState(0);
-
-  const RightArrow = () => {
-    const { scrollPrev, isFirstItemVisible } = useContext(VisibilityContext);
-
-    return (
-      <Button
-        variant="outlined"
-        size="small"
-        className=" border-cyan-500 text-gray-300 hover:text-white hover:border-cyan-300 rounded-xl"
-        // onClick={goPrevious}
-        onClick={() => scrollPrev()}
-        // disabled={isFirstItemVisible}
-      >
-        <span className="text-[13px]">
-          <ArrowCircleRightOutlinedIcon className="text-[50px] " />
-        </span>
-      </Button>
-    );
-  };
-
-  const LeftArrow = () => {
-    const { scrollNext, isFirstItemVisible } = useContext(VisibilityContext);
-
-    return (
-      <Button
-        variant="outlined"
-        size="small"
-        className=" border-cyan-500 text-gray-300 hover:text-white  hover:border-cyan-300 rounded-xl"
-        // onClick={goNext}
-        onClick={() => scrollNext()}
-        // disabled={isFirstItemVisible}
-      >
-        <span className="text-[13px]">
-          <ArrowCircleLeftOutlinedIcon className="text-[50px]" />
-        </span>
-      </Button>
-    );
-  };
-
-  function CardRender({ onClick, selected, item, itemId }) {
-    const visibility = useContext(VisibilityContext);
-
-    return (
-      <div
-        onClick={() => onClick(visibility)}
-        tabIndex={0}
-        style={{ height: "300px", width: "30%" }}
-        className={`border-2 rounded-xl bg-black me-2 ms-2`}
-      >
-        <div className={`p-4 border bg-[#a5974844] h-[100px] slider-item`}>
-          <div className="font-bold text-[18px] text-white">{item.title}</div>
-        </div>
-        <CardContent>
-          <p className="text-white">{item.title}</p>
-        </CardContent>
-        <CardActions className="ms-2 mb-2">
-          <Button
-            size="small"
-            variant="outlined"
-            className="text-cyan-500 hover:text-cyan-300 text-[12px]"
-          >
-            Share
-          </Button>
-          <Button
-            size="small"
-            variant="outlined"
-            className="text-cyan-500 hover:text-cyan-300 text-[12px]"
-          >
-            Learn More
-          </Button>
-        </CardActions>
-        <div>visible: {JSON.stringify(!!visibility.isItemVisible(itemId))}</div>
-        <div>selected: {JSON.stringify(!!selected)}</div>
-      </div>
-    );
-  }
+  const swiper = useSwiper();
 
   const isItemSelected = (id) => !!selected.find((el) => el === id);
   const handleClick =
@@ -183,49 +108,78 @@ const BlogSection = () => {
     <section className=" bg-black bg-opacity-20   w-full p-5 mt-16">
       <main className="p-10 w-full h-[100%]  rounded-md">
         <div className="slider-container w-full">
-          <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
-            {items.map((item, index) => {
-              return (
-                <CardRender
-                  itemId={item.id}
-                  // className={`border-2 rounded-xl max-h-[500px] bg-black me-2 ms-2`}
-                  onClick={handleClick(item.id)}
-                  selected={isItemSelected(item.id)}
-                  item={item}
-                  key={item.id}
-                >
-                  {/* <div
-                    className={`p-4 border bg-[#a5974844] h-[100px] slider-item ${
-                      index === 1 ? "active" : ""
-                    }`}
-                  >
-                    <div className="font-bold text-[18px] text-white">
-                      {item.title}
-                    </div>
+          <div className="flex max-w-[100vw]">
+            {/* <Swiper
+              spaceBetween={50}
+              slidesPerView={3}
+              onSlideChange={() => console.log("slide change")}
+              onSwiper={(swiper) => console.log(swiper)}
+              className="max-w-[50%]"
+            >
+              {items.map((item, index) => {
+                return (
+                  <div>
+                    <Button
+                      variant="outlined"
+                      size="small"
+                      className=" border-cyan-500 text-gray-300 hover:text-white hover:border-cyan-300 rounded-xl"
+                      onClick={() => {
+                        swiper.slideNext();
+                      }}
+                    >
+                      <span className="text-[13px]">
+                        <ArrowCircleLeftOutlinedIcon className="text-[50px] " />
+                      </span>
+                    </Button>
+                    <SwiperSlide
+                      key={index}
+                      virtualIndex={index}
+                      className="border rounded-xl"
+                    >
+                      <div
+                        className={`p-4 border-b bg-[#a5974844] h-[100px] slider-item ${
+                          index === 1 ? "active" : ""
+                        }`}
+                      >
+                        <div className="font-bold text-[18px] text-white">
+                          {item.title}
+                        </div>
+                      </div>
+                      <CardContent>
+                        <p className="text-white">{item.content}</p>
+                      </CardContent>
+                      <CardActions className="ms-2 mb-2">
+                        <Button
+                          size="small"
+                          variant="outlined"
+                          className="text-cyan-500 hover:text-cyan-300 text-[12px]"
+                        >
+                          Share
+                        </Button>
+                        <Button
+                          size="small"
+                          variant="outlined"
+                          className="text-cyan-500 hover:text-cyan-300 text-[12px]"
+                        >
+                          Learn More
+                        </Button>
+                      </CardActions>
+                    </SwiperSlide>
+                    <Button
+                      variant="outlined"
+                      size="small"
+                      className=" border-cyan-500 text-gray-300 hover:text-white  hover:border-cyan-300 rounded-xl"
+                      onClick={() => scrollPrev()}
+                    >
+                      <span className="text-[13px]">
+                        <ArrowCircleRightOutlinedIcon className="text-[50px]" />
+                      </span>
+                    </Button>
                   </div>
-                  <CardContent>
-                    <p className="text-white">{item.content}</p>
-                  </CardContent>
-                  <CardActions className="ms-2 mb-2">
-                    <Button
-                      size="small"
-                      variant="outlined"
-                      className="text-cyan-500 hover:text-cyan-300 text-[12px]"
-                    >
-                      Share
-                    </Button>
-                    <Button
-                      size="small"
-                      variant="outlined"
-                      className="text-cyan-500 hover:text-cyan-300 text-[12px]"
-                    >
-                      Learn More
-                    </Button>
-                  </CardActions> */}
-                </CardRender>
-              );
-            })}
-          </ScrollMenu>
+                );
+              })}
+            </Swiper> */}
+          </div>
         </div>
       </main>
     </section>
