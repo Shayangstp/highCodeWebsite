@@ -6,6 +6,7 @@ import OurServices from "./components/OurServices";
 import AboutUs from "./components/AboutUs";
 import BlogSection from "./components/BlogSection";
 import Footer from "./components/Footer";
+import Skills from "./components/Skills";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
         <Hero />
         <OurServices />
         <AboutUs />
+        <Skills />
         <BlogSection />
         <Footer />
       </div>

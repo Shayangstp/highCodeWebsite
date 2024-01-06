@@ -28,67 +28,50 @@ const blogData = [
   {
     id: 1,
     title: "Top 5 things web sites must have !! 1",
-    titleColor: "87A548",
+    titleColor: "#4c695b",
     content:
       "design efficient solutions, and implement robust software systems. Effective communication and teamwork are key strengths of the team, as they frequently collaborate, share are key",
   },
   {
     id: 2,
     title: "How buy Domain ?? 2",
-    titleColor: "3B464B",
+    titleColor: "#4c5a69",
     content:
       "design efficient solutions, and implement robust software systems. Effective communication and teamwork are key strengths of the team, as they frequently collaborate, share are key",
   },
   {
     id: 3,
     title: "How start to be programmer the mindset 3",
-    titleColor: "3B464B",
+    titleColor: "#694c69",
     content:
       "design efficient solutions, and implement robust software systems. Effective communication and teamwork are key strengths of the team, as they frequently collaborate, share are key",
   },
   {
     id: 4,
     title: "How start to be programmer the mindset 4",
-    titleColor: "3B464B",
+    titleColor: "#68694c",
     content:
       "design efficient solutions, and implement robust software systems. Effective communication and teamwork are key strengths of the team, as they frequently collaborate, share are key",
   },
   {
     id: 5,
     title: "How start to be programmer the mindset 5",
-    titleColor: "3B464B",
+    titleColor: "#694c4c",
     content:
       "design efficient solutions, and implement robust software systems. Effective communication and teamwork are key strengths of the team, as they frequently collaborate, share are key",
   },
   {
     id: 6,
     title: "How start to be programmer the mindset 6",
-    titleColor: "3B464B",
+    titleColor: "#574c69",
     content:
       "design efficient solutions, and implement robust software systems. Effective communication and teamwork are key strengths of the team, as they frequently collaborate, share are key",
   },
 ];
 
 const BlogSection = () => {
-  const [startIndex, setStartIndex] = useState(0);
   const [items, setItems] = useState(blogData);
-  const [selected, setSelected] = useState([]);
-  const [position, setPosition] = useState(0);
   const swiperRef = useRef(null);
-  const swiper = useSwiper();
-
-  const isItemSelected = (id) => !!selected.find((el) => el === id);
-  const handleClick =
-    (id) =>
-    ({ getItemById, scrollToItem }) => {
-      const itemSelected = isItemSelected(id);
-
-      setSelected((currentSelected) =>
-        itemSelected
-          ? currentSelected.filter((el) => el !== id)
-          : currentSelected.concat(id)
-      );
-    };
 
   const slideNext = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -102,26 +85,8 @@ const BlogSection = () => {
     }
   };
 
-  // const goNext = () => {
-  //   setStartIndex((prevIndex) =>
-  //     prevIndex === 0 ? blogData.length - 1 : prevIndex - 1
-  //   );
-  // };
-
-  // const goPrevious = () => {
-  //   setStartIndex((prevIndex) => (prevIndex + 1) % blogData.length);
-  // };
-
-  const visibleBlogs = [
-    blogData[startIndex],
-    blogData[(startIndex + 1) % blogData.length],
-    blogData[(startIndex + 2) % blogData.length],
-  ];
-
-  // const visibleBlogs = blogData.slice(startIndex, startIndex + 3);
-
   return (
-    <section className=" bg-black bg-opacity-20  p-5 mt-32">
+    <section className=" bg-black bg-opacity-20 p-5 mt-32">
       <main className="p-10 h-[100%]  rounded-md">
         <h1 className="text-white font-extrabold text-[90px] mb-16">
           OUR BLOG :
@@ -144,8 +109,6 @@ const BlogSection = () => {
             <Swiper
               spaceBetween={40}
               slidesPerView="auto"
-              onSlideChange={() => console.log("slide change")}
-              onSwiper={(swiper) => console.log(swiper)}
               // navigation={true}
               className="swiper-container"
               modules={[Pagination, Navigation]}
@@ -160,18 +123,21 @@ const BlogSection = () => {
               // }}
             >
               {items.map((item, index) => {
+                console.log(item.titleColor);
                 return (
-                  // <div>
                   <SwiperSlide
                     key={index}
                     virtualIndex={index}
-                    className="m-0 p-0 max-w-[25%]"
+                    className="m-0 p-0 max-w-[31%]"
                   >
-                    <div className="border rounded-xl max-w-[100p%]">
+                    <div className="border rounded-xl max-w-[100%]">
                       <div
-                        className={`p-4 border-b bg-[#a5974844] h-[100px] slider-item ${
+                        className={`p-4 rounded-t-xl border-b h-[100px] slider-item ${
                           index === 1 ? "active" : ""
                         }`}
+                        style={{
+                          backgroundColor: `${item.titleColor}80`,
+                        }}
                       >
                         <div className="font-bold text-[18px] text-white">
                           {item.title}
@@ -198,7 +164,6 @@ const BlogSection = () => {
                       </CardActions>
                     </div>
                   </SwiperSlide>
-                  // </div>
                 );
               })}
             </Swiper>
