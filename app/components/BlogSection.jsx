@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowDown,
@@ -19,7 +19,10 @@ import {
 import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 const blogData = [
   {
@@ -71,6 +74,7 @@ const BlogSection = () => {
   const [items, setItems] = useState(blogData);
   const [selected, setSelected] = useState([]);
   const [position, setPosition] = useState(0);
+  const swiperRef = useRef(null);
   const swiper = useSwiper();
 
   const isItemSelected = (id) => !!selected.find((el) => el === id);
@@ -85,6 +89,18 @@ const BlogSection = () => {
           : currentSelected.concat(id)
       );
     };
+
+  const slideNext = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slideNext();
+    }
+  };
+
+  const slidePrev = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slidePrev();
+    }
+  };
 
   // const goNext = () => {
   //   setStartIndex((prevIndex) =>
@@ -105,37 +121,53 @@ const BlogSection = () => {
   // const visibleBlogs = blogData.slice(startIndex, startIndex + 3);
 
   return (
-    <section className=" bg-black bg-opacity-20   w-full p-5 mt-16">
-      <main className="p-10 w-full h-[100%]  rounded-md">
+    <section className=" bg-black bg-opacity-20  p-5 mt-32">
+      <main className="p-10 h-[100%]  rounded-md">
+        <h1 className="text-white font-extrabold text-[90px] mb-16">
+          OUR BLOG :
+        </h1>
         <div className="slider-container w-full">
-          <div className="flex max-w-[100vw]">
-            {/* <Swiper
-              spaceBetween={50}
-              slidesPerView={3}
+          <div className="flex">
+            <Button
+              variant="outlined"
+              size="small"
+              className=" border-cyan-500 text-gray-300 hover:text-white hover:border-cyan-300 rounded-xl me-2"
+              // onClick={() => {
+              //   swiper.slideNext();
+              // }}
+              onClick={slidePrev}
+            >
+              <span className="text-[13px]">
+                <ArrowCircleLeftOutlinedIcon className="text-[50px] " />
+              </span>
+            </Button>
+            <Swiper
+              spaceBetween={40}
+              slidesPerView="auto"
               onSlideChange={() => console.log("slide change")}
               onSwiper={(swiper) => console.log(swiper)}
-              className="max-w-[50%]"
+              // navigation={true}
+              className="swiper-container"
+              modules={[Pagination, Navigation]}
+              ref={swiperRef}
+              // breakpoints={{
+              //   1920: {
+              //     slidesPerView: 3,
+              //   },
+              //   1900: {
+              //     slidesPerView: 1,
+              //   },
+              // }}
             >
               {items.map((item, index) => {
                 return (
-                  <div>
-                    <Button
-                      variant="outlined"
-                      size="small"
-                      className=" border-cyan-500 text-gray-300 hover:text-white hover:border-cyan-300 rounded-xl"
-                      onClick={() => {
-                        swiper.slideNext();
-                      }}
-                    >
-                      <span className="text-[13px]">
-                        <ArrowCircleLeftOutlinedIcon className="text-[50px] " />
-                      </span>
-                    </Button>
-                    <SwiperSlide
-                      key={index}
-                      virtualIndex={index}
-                      className="border rounded-xl"
-                    >
+                  // <div>
+                  <SwiperSlide
+                    key={index}
+                    virtualIndex={index}
+                    className="m-0 p-0 max-w-[25%]"
+                  >
+                    <div className="border rounded-xl max-w-[100p%]">
                       <div
                         className={`p-4 border-b bg-[#a5974844] h-[100px] slider-item ${
                           index === 1 ? "active" : ""
@@ -159,26 +191,27 @@ const BlogSection = () => {
                         <Button
                           size="small"
                           variant="outlined"
-                          className="text-cyan-500 hover:text-cyan-300 text-[12px]"
+                          className="text-cyan-500 hover:text-cyan-300 text-[12px] ms-2"
                         >
                           Learn More
                         </Button>
                       </CardActions>
-                    </SwiperSlide>
-                    <Button
-                      variant="outlined"
-                      size="small"
-                      className=" border-cyan-500 text-gray-300 hover:text-white  hover:border-cyan-300 rounded-xl"
-                      onClick={() => scrollPrev()}
-                    >
-                      <span className="text-[13px]">
-                        <ArrowCircleRightOutlinedIcon className="text-[50px]" />
-                      </span>
-                    </Button>
-                  </div>
+                    </div>
+                  </SwiperSlide>
+                  // </div>
                 );
               })}
-            </Swiper> */}
+            </Swiper>
+            <Button
+              variant="outlined"
+              size="small"
+              className=" border-cyan-500 text-gray-300 hover:text-white  hover:border-cyan-300 rounded-xl"
+              onClick={slideNext}
+            >
+              <span className="text-[13px]">
+                <ArrowCircleRightOutlinedIcon className="text-[50px]" />
+              </span>
+            </Button>
           </div>
         </div>
       </main>

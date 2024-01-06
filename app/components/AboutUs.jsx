@@ -50,7 +50,7 @@ const AboutUs = () => {
   }, [expandedItem]);
 
   return (
-    <section className=" bg-gray-900 bg-opacity-30 h-full w-full">
+    <section className=" bg-gray-900 bg-opacity-30 h-full w-full mt-32">
       <main className="grid grid-cols-8  h-full w-full bg-black rounded-md">
         {/* col 1 */}
         <div>

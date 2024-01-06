@@ -51,7 +51,7 @@ const constactIcons = [
 const Footer = () => {
   const [activeLink, setActiveLink] = useState("/");
   return (
-    <section className="flex flex-col bg-gradient-to-r from-[#1e2923] to-black w-full p-5 mt-16 ">
+    <section className="flex flex-col bg-gradient-to-r from-[#1e2923] to-black w-full p-5 mt-32">
       <div
         id="ready_toGrow"
         className="flex flex-col justify-center items-center text-white mt-10"
