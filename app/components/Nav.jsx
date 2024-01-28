@@ -74,7 +74,7 @@ const Nav = () => {
   return (
     <div className="bg-transparent border-none p-2">
       <div className="grid grid-cols-5 text-blue-gray-900">
-        <div className="col-span-1 flex justify-center  p-2">
+        <div className="lg:col-span-1 flex justify-center  p-2">
           <Link
             href="/"
             className="text-center ms-10 mr-4 cursor-pointer py-1.5 text-white"
@@ -82,7 +82,7 @@ const Nav = () => {
             HighCode
           </Link>
         </div>
-        <div className="col-span-3 flex justify-center  p-2">
+        <div className="lg:col-span-3 flex justify-center  p-2">
           <div className="hidden lg:block mt-2">{navList}</div>
         </div>
         <div className="">
@@ -100,10 +100,17 @@ const Nav = () => {
             >
               <span className="text-[12px]">Sign in</span>
             </Button>
-            <div>
-              <AppBar position="static" className="bg-transparent lg:hidden">
-                {/* <Toolbar> */}
+            {/* the drwer */}
+            <div className="col-span-5 lg:col-span-0">
+              <div className="bg-transparent lg:hidden flex justify-between w-[100vw]">
+                <Link
+                  href="/"
+                  className="text-center ms-10 mr-4 cursor-pointer py-1.5 text-white"
+                >
+                  HighCode
+                </Link>
                 <IconButton
+                  className="text-white me-10"
                   edge="start"
                   color="inherit"
                   aria-label="menu"
@@ -111,8 +118,7 @@ const Nav = () => {
                 >
                   <Menu />
                 </IconButton>
-                {/* </Toolbar> */}
-              </AppBar>
+              </div>
 
               <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer}>
                 <div className="bg-gray-900 h-[100vh]">
