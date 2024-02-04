@@ -44,9 +44,9 @@ const OurServices = () => {
     };
   }, []);
   return (
-    <section className=" bg-gray-900 bg-opacity-30  w-full p-5 mt-32">
-      <div className=" w-full h-[100%]  rounded-md bg-gradient-to-r from-white to-gray-900 p-0.5">
-        <main className="grid grid-cols-8 p-10 w-full h-[100%] bg-black rounded-md">
+    <section className=" bg-gray-900 bg-opacity-30 p-5 mt-32">
+      <div className=" h-[100%] rounded-md bg-gradient-to-r from-white to-gray-900 p-0.5">
+        <main className="grid grid-cols-8 p-10 max-w-screen-sm h-[100%] bg-black rounded-md">
           {/* col 1 */}
           <div className="flex justify-center items-center col-span-5 ms-10 h-[100%] ">
             <div className="text-white flex flex-col gap-7">
@@ -125,7 +125,7 @@ const OurServices = () => {
             </div>
           </div>
           {/* end of col 1 */}
-          <div className="flex justify-center items-center col-span-3 h-[100%]">
+          <div className="xl:flex hidden justify-center items-center col-span-3 h-[100%]">
             {/* test the img tag */}
             <div className="sec2Wallpaper w-full h-full me-10" />
           </div>

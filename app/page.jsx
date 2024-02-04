@@ -10,15 +10,15 @@ import Skills from "./components/Skills";
 
 const Home = () => {
   return (
-    <div className="flex justify-center items-center">
+    <div className="">
       <div className="bg-cover bg-center min-h-[100vh] max-w-[1920px]">
         <Navbar />
         <Hero />
-        <OurServices />
+        {/* <OurServices />
         <AboutUs />
         <Skills />
         <BlogSection />
-        <Footer />
+        <Footer /> */}
       </div>
     </div>
   );

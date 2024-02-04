@@ -16,6 +16,7 @@ import { Button } from "@mui/material";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { IconButton, Tooltip } from "@mui/material";
 import { AddCircle } from "@mui/icons-material";
+import { social } from "../helpers";
 
 const page = ["home", "sec1", "sec2", "sec4"];
 const constactIcons = [
@@ -72,11 +73,10 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="h-[100vh]">
-      <section className="grid grid-cols-5 h-[100%] hero">
+    <div className="h-[100vh] relative">
+      <section className="xl:grid grid-cols-5 h-[100%] flex justify-center relative hero bg-cover bg-center">
         {/* col 1 */}
-
-        <div className="flex justify-center items-center col-span-1 h-[100%] ">
+        <div className="xl:flex justify-center items-center col-span-1 h-[100%] hidden">
           <div className="text-white flex flex-col gap-7">
             {page.map((item, index) => (
               <div key={index}>
@@ -108,10 +108,10 @@ const Hero = () => {
         {/* col 2 */}
         <div className="col-span-3 flex justify-center items-center">
           <div className="">
-            <div className="text-white text-[55px] font-bold">
+            <div className="text-white md:text-[55px] sm:text-[30px] text-[20px]  font-bold">
               Unleash Your Imagination
             </div>
-            <div className="text-white text-[30px] font-bold text-end ms-2">
+            <div className="text-white md:text-[30px] sm:text-[20px] text-[12px] font-bold text-end ms-2">
               ,We handle the Code
             </div>
             <div className="flex justify-center gap-3 mt-10">
@@ -131,18 +131,18 @@ const Hero = () => {
           </div>
         </div>
         {/* col 3 */}
-        <div className="col-span-1 h-[100%]">
+        <div className="xl:col-span-1 h-[100%] hidden xl:inline-block">
           <div className="text-red-600 flex items-center justify-center p-5 h-[100%]">
             <div className="border border-gray-500 w-0 h-[50%]"></div>
             <div className="ms-10 flex flex-col gap-10">
-              {constactIcons.map((item) => {
+              {social.map((item) => {
                 return (
-                  <Tooltip title={item.title} arrow>
-                    <FontAwesomeIcon
-                      icon={item.icon}
-                      className="text-gray-500 h-[10px] hover:text-[#00D1FF] cursor-pointer text-[20px]"
-                    />
-                  </Tooltip>
+                  // <Tooltip title={item.title} arrow>
+                  <FontAwesomeIcon
+                    icon={item.icon}
+                    className="text-gray-500 h-[10px] hover:text-[#00D1FF] cursor-pointer text-[20px]"
+                  />
+                  // </Tooltip>
                 );
               })}
             </div>

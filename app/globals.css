@@ -9,13 +9,16 @@ body {
 .hero {
   background-image: url("../public/assets/testFinal.png");
   background-size: cover;
+  object-fit: cover;
 }
+
 .sec2Wallpaper {
   background-image: url("../public/assets/sec2Wallpaper.png");
   background-size: cover;
   width: 450px;
   height: 450px;
 }
+
 .sec3Wallpaper-aboutUs {
   background-image: url("../public/assets/sec3Wallpaper-aboutUs.png");
   background-size: cover;
