@@ -116,13 +116,13 @@ const Hero = () => {
             </div>
             <div className="flex justify-center gap-3 mt-10">
               <Button
-                className="text-white  border px-5 py-3 rounded-xl bg-blue-transparent text-sm hover:bg-cyan-800"
+                className="text-white  border px-5 py-3 rounded-xl bg-blue-transparent text-[12px] sm:text-[15px] hover:bg-cyan-800"
                 variant="contained"
               >
                 ContactUS
               </Button>
               <Button
-                className="text-black border-black px-5 py-3 rounded-xl bg-white text-sm hover:bg-gray-200"
+                className="text-black border-black px-5 py-3 rounded-xl bg-white text-[12px] sm:text-[15px] hover:bg-gray-200"
                 endIcon={<KeyboardArrowRightIcon />}
               >
                 Get Start

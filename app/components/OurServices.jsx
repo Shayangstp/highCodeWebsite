@@ -44,12 +44,12 @@ const OurServices = () => {
     };
   }, []);
   return (
-    <section className=" bg-gray-900 bg-opacity-30 p-5 mt-32">
+    <section className=" bg-gray-900 bg-opacity-30 p-5 mt-24">
       <div className=" h-[100%] rounded-md bg-gradient-to-r from-white to-gray-900 p-0.5">
-        <main className="grid grid-cols-8 p-10 max-w-screen-sm h-[100%] bg-black rounded-md">
+        <main className="grid grid-cols-8 p-10 h-[100%] bg-black rounded-md">
           {/* col 1 */}
-          <div className="flex justify-center items-center col-span-5 ms-10 h-[100%] ">
-            <div className="text-white flex flex-col gap-7">
+          <div className="flex justify-center items-center xl:col-span-5 col-span-8 ms-10 h-[100%] ">
+            <div className="text-white xl:flex hidden flex-col gap-7">
               {page.map((item, index) => (
                 <div key={index}>
                   {activePage === item ? (
@@ -67,7 +67,7 @@ const OurServices = () => {
               ))}
             </div>
 
-            <div className="text-red-600 flex flex-col items-center justify-center p-5 h-[100%] w-[10%]">
+            <div className="text-red-600 xl:flex hidden flex-col items-center justify-center p-5 h-[100%] w-[10%]">
               <div className="flex flex-col ">
                 <div className="border border-gray-500 w-[20px] rotate-45"></div>
                 <div className="border border-gray-500 w-[20px] rotate-45 mt-1"></div>
@@ -77,7 +77,7 @@ const OurServices = () => {
             </div>
             {/* our services section */}
             <div className="flex flex-col">
-              <div className="text-white text-[70px] font-bold">
+              <div className="text-white lg:text-[70px] sm:text-[50px] text-[25px] font-bold">
                 Our Services :{" "}
               </div>
               <ul className="w-[90%] p-5 rounded-xl bg-[#228DAF] list-disc list-inside">
