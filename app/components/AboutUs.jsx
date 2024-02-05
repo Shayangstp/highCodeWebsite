@@ -7,6 +7,7 @@ import {
   faCircle,
   faCircleRight,
   faChevronDown,
+  faChevronUp,
 } from "@fortawesome/free-solid-svg-icons";
 // import { Button } from "@material-tailwind/react";
 
@@ -50,11 +51,11 @@ const AboutUs = () => {
   }, [expandedItem]);
 
   return (
-    <section className=" bg-gray-900 bg-opacity-30 h-full w-full mt-32">
+    <section className=" bg-gray-900 bg-opacity-30  w-full mt-32">
       <main className="grid grid-cols-8  h-full w-full bg-black rounded-md">
         {/* col 1 */}
-        <div>
-          <div className="flex justify-center  items-center col-span-1 ms-16 h-[100%]">
+        <div className="hidden xl:inline-block">
+          <div className="xl:flex hidden justify-center  items-center col-span-1 xl:ms-16 ms-0 h-[100%]">
             <div className="text-white flex flex-col gap-7">
               {page.map((item, index) => (
                 <div key={index}>
@@ -73,7 +74,7 @@ const AboutUs = () => {
               ))}
             </div>
 
-            <div className="text-red-600 flex flex-col items-center justify-center p-5 h-[100%] w-[10%]">
+            <div className="text-red-600 xl:flex hidden flex-col items-center justify-center p-5 h-[100%] w-[10%]">
               <div className="flex flex-col ">
                 <div className="border border-gray-500 w-[20px] rotate-45"></div>
                 <div className="border border-gray-500 w-[20px] rotate-45 mt-1"></div>
@@ -84,14 +85,16 @@ const AboutUs = () => {
           </div>
         </div>
         {/* AboutUs section */}
-        <div className="col-span-7 h-[100%]">
-          <section className="pe-10 py-10">
-            <div className="grid grid-cols-8 bg-cyan-400 rounded-r-[80px] p-10">
-              <div className="col-span-3 font-bold flex items-center justify-center ms-5">
-                <h1 className="text-[70px] text-white">ABOUT US</h1>
+        <div className="xl:col-span-7 col-span-8 h-[100%]">
+          <section className="sm:pe-10 sm:ms-10 xl:ms-0 py-10">
+            <div className="xl:grid grid-cols-8 bg-cyan-400 rounded-r-[80px] xl:p-10 p-5">
+              <div className="col-span-3 font-bold flex items-center justify-center xl:ms-5">
+                <h1 className="xl:text-[70px] sm:text-[50px] text-[30px]  text-white">
+                  ABOUT US
+                </h1>
               </div>
               <div className="col-span-1 flex items-center justify-center">
-                <div className="border h-0 w-[70%]"></div>
+                <div className="border h-0 w-[70%] xl:inline-block hidden"></div>
               </div>
               <div className="text-white col-span-4 flex items-center">
                 <p className="ms-10">
@@ -101,7 +104,7 @@ const AboutUs = () => {
                 </p>
               </div>
               {/* image */}
-              <div className="col-span-4 flex justify-center items-center">
+              <div className="xl:col-span-4 xl:flex justify-center items-center hidden">
                 <div className="sec3Wallpaper-aboutUs" />
               </div>
               {/* cards */}
@@ -111,16 +114,18 @@ const AboutUs = () => {
                     <div className="bg-black text-white rounded-[50px] ms-10 overflow-hidden shadow-2xl">
                       <header className="flex items-center justify-between px-10 py-3">
                         <div className="flex items-center">
-                          <span className="text-[80px] font-bold mt-2">
+                          <span className="xl:text-[80px] sm:text-[50px] text-[40px] font-bold mt-2">
                             {item.headerNumber}
                           </span>
-                          <span className="ms-3 text-[20px]">
+                          <span className="ms-3 me-2 sm:me-0 sm:text-[20px] text-[15px]">
                             {item.headerText}
                           </span>
                         </div>
                         <div>
                           <FontAwesomeIcon
-                            icon={faChevronDown}
+                            icon={
+                              expandedItem !== idx ? faChevronDown : faChevronUp
+                            }
                             className={`text-[40px] cursor-pointer hover:text-blue-gray-300 ${
                               expandedItem === idx ? "open" : ""
                             }`}

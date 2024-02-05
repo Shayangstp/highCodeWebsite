@@ -46,7 +46,7 @@ const OurServices = () => {
   return (
     <section className=" bg-gray-900 bg-opacity-30 p-5 mt-24">
       <div className=" h-[100%] rounded-md bg-gradient-to-r from-white to-gray-900 p-0.5">
-        <main className="grid grid-cols-8 p-10 h-[100%] bg-black rounded-md">
+        <main className="sm:grid grid-cols-8 sm:p-10 pt-10  h-[100%] bg-black rounded-md">
           {/* col 1 */}
           <div className="flex justify-center items-center xl:col-span-5 col-span-8 ms-10 h-[100%] ">
             <div className="text-white xl:flex hidden flex-col gap-7">
@@ -77,7 +77,7 @@ const OurServices = () => {
             </div>
             {/* our services section */}
             <div className="flex flex-col">
-              <div className="text-white lg:text-[70px] sm:text-[50px] text-[25px] font-bold">
+              <div className="text-white lg:text-[70px] sm:text-[50px] text-[30px] font-bold mb-2">
                 Our Services :{" "}
               </div>
               <ul className="w-[90%] p-5 rounded-xl bg-[#228DAF] list-disc list-inside">
