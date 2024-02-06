@@ -51,8 +51,8 @@ const AboutUs = () => {
   // }, [expandedItem]);
 
   return (
-    <section className=" bg-gray-900 bg-opacity-30  w-full mt-32">
-      <main className="grid grid-cols-8  h-full w-full bg-black rounded-md">
+    <section className="bg-gray-900 bg-opacity-30 mt-32 max-w-[1920px] w-[100%]">
+      <main className="grid grid-cols-8  h-full w-[100%] bg-black rounded-md">
         {/* col 1 */}
         <div className="hidden xl:inline-block">
           <div className="xl:flex hidden justify-center  items-center col-span-1 xl:ms-16 ms-0 h-[100%]">

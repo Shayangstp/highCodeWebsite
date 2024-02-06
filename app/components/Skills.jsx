@@ -52,7 +52,7 @@ const skilData = [
 const Skills = () => {
   const [activePage, setActivePage] = useState("home");
   return (
-    <section className="bg-gray-900 bg-opacity-30 mt-32">
+    <section className="bg-gray-900 bg-opacity-30 mt-32 max-w-[1920px] w-[100%]">
       <div className="h-[100%] rounded-md bg-gradient-to-r from-white to-gray-900 p-0.5 ms-2">
         <main className="grid grid-cols-8 bg-black rounded-md h-full">
           <div id="border" className="xl:inline-block hidden">

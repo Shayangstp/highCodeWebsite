@@ -44,7 +44,7 @@ const OurServices = () => {
     };
   }, []);
   return (
-    <section className=" bg-gray-900 bg-opacity-30 p-5 mt-24">
+    <section className=" bg-gray-900 bg-opacity-30 p-5 mt-24 max-w-[1920px] w-[100%]">
       <div className=" h-[100%] rounded-md bg-gradient-to-r from-white to-gray-900 p-0.5">
         <main className="sm:grid grid-cols-8 sm:p-10 pt-10  h-[100%] bg-black rounded-md">
           {/* col 1 */}

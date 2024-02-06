@@ -73,7 +73,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="h-[100vh] relative">
+    <div className="h-[100vh] relative max-w-[1920px] w-[100%]">
       <section className="xl:grid grid-cols-5 h-[100%] flex justify-center relative hero bg-cover bg-center">
         {/* col 1 */}
         <div className="xl:flex justify-center items-center col-span-1 h-[100%] hidden">

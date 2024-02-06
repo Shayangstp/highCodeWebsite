@@ -11,7 +11,7 @@ import Skills from "./components/Skills";
 const Home = () => {
   return (
     <div className="flex justify-center">
-      <div className="bg-cover bg-center min-h-[100vh] max-w-[1920px]">
+      <div className="bg-cover bg-center min-h-[100vh] flex flex-col justify-center items-center w-[100vw]">
         <Navbar />
         <Hero />
         <OurServices />

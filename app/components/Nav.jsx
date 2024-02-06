@@ -82,7 +82,7 @@ const Nav = () => {
   );
 
   return (
-    <div className="bg-transparent p-2">
+    <div className="bg-transparent p-2 max-w-[1920px] w-[100%]">
       <div
         id="navExpand"
         className="xl:grid grid-cols-5 text-blue-gray-900 hidden"
