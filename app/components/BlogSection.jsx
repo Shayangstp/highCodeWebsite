@@ -91,8 +91,8 @@ const BlogSection = () => {
         <h1 className="text-white font-extrabold text-[90px] mb-16">
           OUR BLOG :
         </h1>
-        <div className="slider-container w-full">
-          <div className="flex">
+        <div className="slider-containe">
+          <div className="flex border w-[1920px]">
             <Button
               variant="outlined"
               size="small"
@@ -103,24 +103,25 @@ const BlogSection = () => {
               onClick={slidePrev}
             >
               <span className="text-[13px]">
-                <ArrowCircleLeftOutlinedIcon className="text-[50px] " />
+                <ArrowCircleLeftOutlinedIcon className="text-[50px]" />
               </span>
             </Button>
             <Swiper
-              spaceBetween={40}
-              slidesPerView="auto"
               // navigation={true}
-              className="swiper-container"
+              className="mySwiper"
               modules={[Pagination, Navigation]}
               ref={swiperRef}
-              // breakpoints={{
-              //   1920: {
-              //     slidesPerView: 3,
-              //   },
-              //   1900: {
-              //     slidesPerView: 1,
-              //   },
-              // }}
+              breakpoints={{
+                640: {
+                  slidesPerView: 1,
+                },
+                768: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 3,
+                },
+              }}
             >
               {items.map((item, index) => {
                 console.log(item.titleColor);
@@ -128,7 +129,7 @@ const BlogSection = () => {
                   <SwiperSlide
                     key={index}
                     virtualIndex={index}
-                    className="m-0 p-0 max-w-[31%]"
+                    className="m-0 p-0 max-w-[500px]"
                   >
                     <div className="border rounded-xl max-w-[100%]">
                       <div

@@ -46,9 +46,9 @@ const AboutUs = () => {
     }
   };
 
-  useEffect(() => {
-    if (expandedItem === null) setExpandedItem(0);
-  }, [expandedItem]);
+  // useEffect(() => {
+  //   if (expandedItem === null) setExpandedItem(0);
+  // }, [expandedItem]);
 
   return (
     <section className=" bg-gray-900 bg-opacity-30  w-full mt-32">

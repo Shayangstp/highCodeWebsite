@@ -56,8 +56,10 @@ const Footer = () => {
         id="ready_toGrow"
         className="flex flex-col justify-center items-center text-white mt-10"
       >
-        <div className="text-white font-bold text-[100px]">Ready to Grow ?</div>
-        <p className="text-white">
+        <div className="text-white font-bold lg:text-[100px] sm:text-[70px] text-[40px]">
+          Ready to Grow ?
+        </div>
+        <p className="text-white text-center sm:text-start">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda,
           cupiditate
         </p>
@@ -99,7 +101,7 @@ const Footer = () => {
           />
           <Button
             size="small"
-            className="text-black border-black px-3 py-3 rounded-xl bg-white text-[12px] hover:bg-gray-200 "
+            className="text-black border-black px-3 py-3 rounded-xl bg-white sm:text-[12px] text-[10px] hover:bg-gray-200 "
           >
             <span>ContactUS</span>
             <ArrowOutwardIcon fontSize="small" />
@@ -107,10 +109,10 @@ const Footer = () => {
         </div>
       </div>
       <div className="grid grid-cols-5 mt-28 mb-10">
-        <div id="lable" className="col-span-1 text-end">
+        <div id="lable" className="md:col-span-1 col-span-3 md:text-end">
           <div className="text-white">HighCodeAgency</div>
         </div>
-        <div id="navFooter" className="col-span-3">
+        <div id="navFooter" className="col-span-3 md:inline-block hidden">
           <ul className="flex gap-5 justify-center">
             {navFooter.map((item) => {
               return (
@@ -129,8 +131,8 @@ const Footer = () => {
             })}
           </ul>
         </div>
-        <div id="social" className="col-span-1">
-          <div className="flex gap-8 justify-start">
+        <div id="social" className="md:col-span-1 col-span-2">
+          <div className="flex gap-8 md:justify-start justify-end">
             {constactIcons.map((item) => {
               return (
                 <FontAwesomeIcon
